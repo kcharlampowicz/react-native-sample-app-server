@@ -1,10 +1,10 @@
-package io.netbulls.controllers;
+package app.controllers;
 
-import io.netbulls.data.ItemDto;
-import io.netbulls.data.ReviewDto;
-import io.netbulls.domain.Item;
-import io.netbulls.services.ItemService;
-import io.netbulls.tools.ImageTool;
+import app.data.ItemDto;
+import app.data.ReviewDto;
+import app.domain.Item;
+import app.services.ItemService;
+import app.tools.ImageTool;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.apache.tomcat.util.codec.binary.Base64;

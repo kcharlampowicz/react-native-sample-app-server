@@ -1,4 +1,4 @@
-package io.netbulls.domain;
+package app.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;

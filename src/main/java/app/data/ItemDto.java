@@ -1,6 +1,6 @@
-package io.netbulls.data;
+package app.data;
 
-import io.netbulls.domain.Item;
+import app.domain.Item;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

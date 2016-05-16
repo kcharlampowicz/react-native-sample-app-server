@@ -1,6 +1,6 @@
-package io.netbulls.domain.repository;
+package app.domain.repository;
 
-import io.netbulls.domain.Review;
+import app.domain.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {

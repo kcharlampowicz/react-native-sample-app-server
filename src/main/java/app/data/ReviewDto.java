@@ -1,4 +1,4 @@
-package io.netbulls.data;
+package app.data;
 
 
 import lombok.AccessLevel;

@@ -1,4 +1,4 @@
-package io.netbulls.domain;
+package app.domain;
 
 import java.util.Collections;
 import java.util.Date;
