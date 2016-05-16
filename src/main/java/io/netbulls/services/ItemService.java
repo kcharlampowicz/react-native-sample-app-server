@@ -1,9 +1,9 @@
 package io.netbulls.services;
 
-import io.netbulls.domain.Item;
 import io.netbulls.domain.Review;
 import io.netbulls.domain.repository.ItemRepository;
 import io.netbulls.domain.repository.ReviewRepository;
+import io.netbulls.domain.Item;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.stream.Collectors;

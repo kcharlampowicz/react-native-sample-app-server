@@ -1,18 +1,12 @@
 package io.netbulls.controllers;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import io.netbulls.data.ItemDto;
 import io.netbulls.data.ReviewDto;
 import io.netbulls.domain.Item;
 import io.netbulls.services.ItemService;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import io.netbulls.tools.ImageTool;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.imageio.ImageIO;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,18 +39,7 @@ public class ItemController {
 	@RequestMapping(value = "/{id}/thumbnail", method = RequestMethod.GET, produces = "image/png")
 	public byte[] getThumbnail(@PathVariable Long id) {
 		Item item = itemService.getItem(id);
-		byte[] bytes = Base64.decodeBase64(item.getThumbnail());
-		try (ByteArrayOutputStream os = new ByteArrayOutputStream();
-			 ByteInputStream is = new ByteInputStream(bytes, bytes.length)) {
-			Image tmpImage = ImageIO.read(is);
-			Image scaled = tmpImage.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-			BufferedImage imageBuff = new BufferedImage(200, 200, BufferedImage.TYPE_INT_RGB);
-			imageBuff.getGraphics().drawImage(scaled, 0, 0, new Color(0, 0, 0), null);
-			ImageIO.write(imageBuff, "png", os);
-			return os.toByteArray();
-		}
-		catch (IOException e) {
-			return null;
-		}
+		byte[] thumbnail = Base64.decodeBase64(item.getThumbnail());
+		return ImageTool.resizeImage(thumbnail, 200, 200);
 	}
 }
